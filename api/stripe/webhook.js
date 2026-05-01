@@ -182,12 +182,11 @@ export default async function handler(req, res) {
     return res.status(400).send(`Webhook Error: ${err.message}`)
   }
 
-  // Répondre vite à Stripe, traiter ensuite
-  res.status(200).json({ received: true })
-
   try {
     await handleEvent(event)
   } catch (err) {
     console.error('[stripe] handler error', err)
   }
+
+  return res.status(200).json({ received: true })
 }
