@@ -66,20 +66,89 @@ function emailLayout({ title, accent, rows, footer }) {
   </body></html>`
 }
 
+function fmtAddress(addr) {
+  if (!addr) return null
+  const parts = [
+    addr.line1,
+    addr.line2,
+    [addr.postal_code, addr.city].filter(Boolean).join(' '),
+    addr.state,
+    addr.country
+  ].filter(Boolean)
+  return parts.length ? parts.join(', ') : null
+}
+
+function section(title) {
+  return `<tr><td colspan="2" style="padding:18px 12px 8px;color:#A85F42;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;border-bottom:1px solid #ECE6DC;">${title}</td></tr>`
+}
+
 async function handleEvent(event) {
   const obj = event.data.object
 
   switch (event.type) {
     case 'checkout.session.completed': {
-      const subject = `💰 Nouveau paiement — ${fmtAmount(obj.amount_total, obj.currency)}`
+      // Récupérer la session complète avec line items, customer, payment_intent
+      let full = obj
+      try {
+        full = await stripe.checkout.sessions.retrieve(obj.id, {
+          expand: [
+            'line_items.data.price.product',
+            'customer',
+            'payment_intent.payment_method',
+            'shipping_cost.shipping_rate'
+          ]
+        })
+      } catch (e) {
+        console.error('[stripe] expand error', e.message)
+      }
+
+      const cd = full.customer_details || {}
+      const items = full.line_items?.data || []
+      const itemsHtml = items.length
+        ? items.map(li => {
+            const name = li.price?.product?.name || li.description || 'Article'
+            const qty = li.quantity || 1
+            const amount = fmtAmount(li.amount_total, full.currency)
+            return `${name} × ${qty} — ${amount}`
+          }).join('<br>')
+        : '—'
+
+      const customFields = (full.custom_fields || [])
+        .map(f => {
+          const val = f.text?.value || f.numeric?.value || f.dropdown?.value || '—'
+          return row(f.label?.custom || f.key, val)
+        })
+
+      const pm = full.payment_intent?.payment_method
+      const card = pm?.card ? `${pm.card.brand?.toUpperCase()} •••• ${pm.card.last4}` : null
+
+      const subject = `💰 Nouveau paiement — ${fmtAmount(full.amount_total, full.currency)} · ${cd.name || cd.email || 'client'}`
+
+      const stripeUrl = `https://dashboard.stripe.com/${full.livemode ? '' : 'test/'}payments/${full.payment_intent?.id || full.payment_intent}`
+
       const rows = [
-        row('Client', obj.customer_details?.email || obj.customer_email || '—'),
-        row('Nom', obj.customer_details?.name || '—'),
-        row('Montant', fmtAmount(obj.amount_total, obj.currency)),
-        row('Mode', obj.payment_method_types?.join(', ') || '—'),
-        row('Session ID', obj.id),
-        row('Payment Intent', obj.payment_intent || '—')
+        section('Formule achetée'),
+        row('Article(s)', itemsHtml),
+        row('Total', `<strong>${fmtAmount(full.amount_total, full.currency)}</strong>`),
+
+        section('Client'),
+        row('Nom', cd.name || '—'),
+        row('Email', cd.email ? `<a href="mailto:${cd.email}">${cd.email}</a>` : '—'),
+        row('Téléphone', cd.phone ? `<a href="tel:${cd.phone}">${cd.phone}</a>` : '—'),
+
+        section('Adresse'),
+        row('Facturation', fmtAddress(cd.address) || '—'),
+        ...(full.shipping_details ? [row('Livraison', `${full.shipping_details.name || ''}<br>${fmtAddress(full.shipping_details.address) || ''}`)] : []),
+
+        ...(customFields.length ? [section('Infos complémentaires'), ...customFields] : []),
+
+        section('Paiement'),
+        row('Moyen', card || full.payment_method_types?.join(', ') || '—'),
+        row('Date', new Date((full.created || event.created) * 1000).toLocaleString('fr-FR', { dateStyle: 'full', timeStyle: 'short' })),
+        row('Mode', full.livemode ? '🟢 LIVE' : '🧪 TEST'),
+        row('Session', `<a href="${stripeUrl}">Voir sur Stripe</a>`)
       ]
+
       await sendMail({
         subject,
         html: emailLayout({
