@@ -6,6 +6,7 @@ import Offers from './components/Offers.jsx'
 import Meals from './components/Meals.jsx'
 import Why from './components/Why.jsx'
 import Aides from './components/Aides.jsx'
+import Gift from './components/Gift.jsx'
 import Faq from './components/Faq.jsx'
 import ChefForm from './components/ChefForm.jsx'
 import FinalCta from './components/FinalCta.jsx'
@@ -23,6 +24,7 @@ export default function App() {
         <Meals />
         <Why />
         <Aides />
+        <Gift />
         <Faq />
         <ChefForm />
         <FinalCta />
