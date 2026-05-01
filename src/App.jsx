@@ -7,6 +7,7 @@ import Meals from './components/Meals.jsx'
 import Why from './components/Why.jsx'
 import Aides from './components/Aides.jsx'
 import Faq from './components/Faq.jsx'
+import ChefForm from './components/ChefForm.jsx'
 import FinalCta from './components/FinalCta.jsx'
 import Footer from './components/Footer.jsx'
 
@@ -23,6 +24,7 @@ export default function App() {
         <Why />
         <Aides />
         <Faq />
+        <ChefForm />
         <FinalCta />
       </main>
       <Footer />

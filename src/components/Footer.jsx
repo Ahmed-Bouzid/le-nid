@@ -35,7 +35,7 @@ export default function Footer() {
             <ul>
               <li><a href="mailto:lenid@sunflowersociety.fr">lenid@sunflowersociety.fr</a></li>
               <li><a href="https://www.instagram.com/lenid.maman?igsh=M2tsZjBxam42emF5&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-              <li><a href="#">Devenir chef partenaire</a></li>
+              <li><a href="#devenir-chef">Devenir chef partenaire</a></li>
             </ul>
           </div>
         </div>
