@@ -1,4 +1,20 @@
+import { useEffect, useState } from 'react'
+
+const heroImages = [
+  '/images/plats/maman.png',
+  '/images/plats/chefmaison.png'
+]
+
 export default function Hero() {
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex(i => (i + 1) % heroImages.length)
+    }, 7500)
+    return () => clearInterval(id)
+  }, [])
+
   return (
     <section className="hero">
       <div className="container hero-grid">
@@ -34,11 +50,15 @@ export default function Hero() {
         </div>
 
         <div className="hero-visual">
-          <img
-            src="/images/plats/maman.png"
-            alt="Jeune maman et son bébé, sereins à la maison"
-            className="hero-img"
-          />
+          {heroImages.map((src, i) => (
+            <img
+              key={src}
+              src={src}
+              alt=""
+              className={`hero-img ${i === index ? 'is-active' : ''}`}
+              loading={i === 0 ? 'eager' : 'lazy'}
+            />
+          ))}
           <div className="hero-card top">
             <div className="icon">♡</div>
             <div>

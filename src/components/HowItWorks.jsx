@@ -3,7 +3,8 @@ const steps = [
     n: '01',
     title: 'Vous réservez en ligne',
     text: 'Choisissez une formule et une date. On vous demande vos goûts, allergies, et le matériel dispo chez vous.',
-    img: '/images/plats/chef1.jpg'
+    img: '/images/plats/resa.jpg',
+    imgPos: 'center 25%'
   },
   {
     n: '02',
@@ -15,7 +16,7 @@ const steps = [
     n: '03',
     title: 'Des repas pour la semaine',
     text: 'Plats faits maison, portionnés, étiquetés. Au frigo et au congélateur. Vous n’avez plus qu’à réchauffer.',
-    img: '/images/plats/plat5.jpg'
+    img: '/images/plats/plat6.jpg'
   }
 ]
 
@@ -39,6 +40,7 @@ export default function HowItWorks() {
                   src={s.img}
                   alt={s.title}
                   loading="lazy"
+                  style={s.imgPos ? { objectPosition: s.imgPos } : undefined}
                   onError={(e) => { e.currentTarget.style.display = 'none' }}
                 />
               </div>
