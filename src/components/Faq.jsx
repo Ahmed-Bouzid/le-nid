@@ -3,7 +3,7 @@ import { useState } from 'react'
 const faqs = [
   {
     q: 'Combien de temps dure l’intervention ?',
-    a: '3 heures à votre domicile pour les formules Express et Semaine. La formule Cocon comprend deux passages de 3 heures, espacés selon vos besoins.'
+    a: '3 heures à votre domicile pour les formules Express et Essentiel. La formule Cocon comprend deux passages de 3 heures, espacés selon vos besoins.'
   },
   {
     q: 'Les courses sont-elles incluses ?',

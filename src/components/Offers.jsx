@@ -11,10 +11,10 @@ const packs = [
       'Plats simples & réconfortants'
     ],
     featured: false,
-    url: 'https://buy.stripe.com/00w3cp4yYcaLeuUdS56oo03'
+    url: 'https://buy.stripe.com/6oU00dghG2Ab86w7tH6oo04'
   },
   {
-    name: 'Semaine',
+    name: 'Essentiel',
     price: 439,
     desc: 'La formule la plus choisie. Une semaine sereine.',
     duration: '5 à 7 jours de repas',
@@ -27,7 +27,7 @@ const packs = [
     ],
     featured: true,
     badge: 'Le plus choisi',
-    url: 'https://buy.stripe.com/fZu28lc1qcaLcmMcO16oo01'
+    url: 'https://buy.stripe.com/dRmfZbfdCdeP72s15j6oo05'
   },
   {
     name: 'Cocon',
@@ -42,7 +42,7 @@ const packs = [
       'Suivi & ajustements'
     ],
     featured: false,
-    url: 'https://buy.stripe.com/4gM28l7Lagr1aeEcO16oo02'
+    url: 'https://buy.stripe.com/7sYbIV9TieiTcmM6pD6oo06'
   }
 ]
 

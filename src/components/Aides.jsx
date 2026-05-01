@@ -23,7 +23,7 @@ export default function Aides() {
                 <span className="ex-after">après crédit d’impôt</span>
               </div>
               <div className="aide-ex">
-                <span className="ex-label">Semaine</span>
+                <span className="ex-label">Essentiel</span>
                 <div className="ex-price"><s>439€</s> <strong>220€</strong></div>
                 <span className="ex-after">après crédit d’impôt</span>
               </div>
