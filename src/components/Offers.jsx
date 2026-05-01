@@ -1,7 +1,7 @@
 const packs = [
   {
     name: 'Express',
-    price: 230,
+    price: 249,
     desc: 'Une bouffée d’air pour démarrer en douceur.',
     duration: '2 à 4 jours de repas',
     features: [
@@ -15,7 +15,7 @@ const packs = [
   },
   {
     name: 'Semaine',
-    price: 370,
+    price: 439,
     desc: 'La formule la plus choisie. Une semaine sereine.',
     duration: '5 à 7 jours de repas',
     features: [
@@ -31,7 +31,7 @@ const packs = [
   },
   {
     name: 'Cocon',
-    price: 640,
+    price: 779,
     desc: 'Deux passages, pour un post-partum tout en douceur.',
     duration: '10 à 14 jours de repas',
     features: [

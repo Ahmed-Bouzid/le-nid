@@ -19,17 +19,17 @@ export default function Aides() {
             <div className="aides-examples">
               <div className="aide-ex">
                 <span className="ex-label">Express</span>
-                <div className="ex-price"><s>230€</s> <strong>115€</strong></div>
+                <div className="ex-price"><s>249€</s> <strong>125€</strong></div>
                 <span className="ex-after">après crédit d’impôt</span>
               </div>
               <div className="aide-ex">
                 <span className="ex-label">Semaine</span>
-                <div className="ex-price"><s>370€</s> <strong>185€</strong></div>
+                <div className="ex-price"><s>439€</s> <strong>220€</strong></div>
                 <span className="ex-after">après crédit d’impôt</span>
               </div>
               <div className="aide-ex">
                 <span className="ex-label">Cocon</span>
-                <div className="ex-price"><s>640€</s> <strong>320€</strong></div>
+                <div className="ex-price"><s>779€</s> <strong>390€</strong></div>
                 <span className="ex-after">après crédit d’impôt</span>
               </div>
             </div>
