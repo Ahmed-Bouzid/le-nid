@@ -33,7 +33,7 @@ export default function Footer() {
           <div>
             <h5>Contact</h5>
             <ul>
-              <li><a href="mailto:bonjour@lenid.fr">bonjour@lenid.fr</a></li>
+              <li><a href="mailto:lenid@sunflowersociety.fr">lenid@sunflowersociety.fr</a></li>
               <li><a href="#">Instagram</a></li>
               <li><a href="#">Devenir chef partenaire</a></li>
             </ul>
