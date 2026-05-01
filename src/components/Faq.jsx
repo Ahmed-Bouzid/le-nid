@@ -18,6 +18,10 @@ const faqs = [
     a: '3 à 4 jours au frigo, jusqu’à 2 mois au congélateur. Tout est étiqueté, daté et organisé pour que vous n’ayez qu’à réchauffer.'
   },
   {
+    q: 'Puis-je bénéficier d’un crédit d’impôt ou d’une aide ?',
+    a: 'Oui, plusieurs dispositifs existent : crédit d’impôt de 50% au titre des services à la personne (sous conditions), aide à domicile post-naissance de la CAF, ou forfait naissance de votre mutuelle. Sur demande, nous fournissons une attestation pour faciliter vos démarches.'
+  },
+  {
     q: 'Puis-je offrir Le Nid en cadeau de naissance ?',
     a: 'Oui, c’est même l’un des plus beaux cadeaux possibles. Nous proposons des cartes-cadeaux pour toutes les formules.'
   }
