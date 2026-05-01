@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: 'Puis-je bénéficier d’un crédit d’impôt ou d’une aide ?',
-    a: 'Oui, plusieurs dispositifs existent : crédit d’impôt de 50% au titre des services à la personne (sous conditions), aide à domicile post-naissance de la CAF, ou forfait naissance de votre mutuelle. Sur demande, nous fournissons une attestation pour faciliter vos démarches.'
+    a: 'Notre prestation peut être éligible au dispositif “services à la personne”, qui ouvre droit à un crédit d’impôt de 50% sur vos dépenses (selon votre situation fiscale). Sur demande, nous vous fournissons une attestation à joindre à votre déclaration.'
   },
   {
     q: 'Puis-je offrir Le Nid en cadeau de naissance ?',

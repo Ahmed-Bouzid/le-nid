@@ -11,8 +11,8 @@ export default function Aides() {
               <span className="accent-text">50% remboursés</span> grâce au crédit d’impôt
             </h2>
             <p className="aides-lead">
-              Le Nid est éligible au dispositif <strong>“services à la personne”</strong>.
-              Vous bénéficiez d’un <strong>crédit d’impôt de 50%</strong> sur vos dépenses :
+              Notre prestation peut être <strong>éligible au dispositif “services à la personne”</strong>.
+              Vous pouvez alors bénéficier d’un <strong>crédit d’impôt de 50%</strong> sur vos dépenses :
               concrètement, vous ne payez que la moitié du prix réel.
             </p>
 
